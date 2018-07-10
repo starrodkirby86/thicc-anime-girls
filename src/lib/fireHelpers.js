@@ -1,12 +1,15 @@
 import "firebase/storage";
 import fire from './fire';
 
+export const getThumbnailSrc = (refUrl) => getDownloadURL(`thumbnails/${refUrl}`);
+export const getImageSrc = (refUrl) => getDownloadURL(`images/${refUrl}`);
+
 /**
  * Returns a promise containing the download URL gathered from refUrl
  * @param refUrl: String containing simple reference to image. (e.g. "images/banana.jpg")
  * @returns {Promise<T>}: Promise with (url) parameter
  */
-export const getImageSrc = (refUrl) => {
+export const getDownloadURL = (refUrl) => {
   const storage = fire.storage();
   const storageRef = storage.ref();
   return storageRef.child(refUrl).getDownloadURL();

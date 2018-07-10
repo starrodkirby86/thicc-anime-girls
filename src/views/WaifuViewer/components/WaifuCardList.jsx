@@ -5,6 +5,7 @@ import WaifuCard from './WaifuCard';
 
 const WaifuCardList = (props) => {
   const { waifus, onClickHandler } = props;
+  console.info(waifus);
   const waifuCards = waifus.map((waifu) => (
     <WaifuCard
       key={`Waifu Card: ${waifu ? waifu.name : 'empty'}`}

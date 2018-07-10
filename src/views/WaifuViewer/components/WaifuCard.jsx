@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Image, Segment, Rating, Dimmer, Loader } from 'semantic-ui-react';
 import placeholderThumbnail from '../../../res/images/t_placeholder.jpg';
-import { getImageSrc } from "../../../lib/fireHelpers";
+import { getThumbnailSrc } from "../../../lib/fireHelpers";
 import withLoader from "../../../hocs/withLoader";
 
 class WaifuCard extends React.Component {
@@ -13,7 +13,7 @@ class WaifuCard extends React.Component {
   componentDidMount() {
     const { thumbnail } = this.props;
     if (thumbnail === '') return;
-    getImageSrc(thumbnail)
+    getThumbnailSrc(thumbnail)
       .then(url => this.setState({ thumbnailUrl: url }))
       .catch(error => { console.log("Something went wrong."); console.log(error); });
   }
